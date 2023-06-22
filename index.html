@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+</head>
+<style>
+*{
+margin:0;
+padding:0;
+}	
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100vh;
+  flex-direction:column;
+  gap:50px;
+}
+#btn{
+padding:10px 20px;
+font-size:20px;
+font-family:cursive;
+border-top-left-radius:10px;
+border-bottom-right-radius:10px;
+background:linear-gradient(#ECB813,#EC7613);
+box-shadow:0px 0px 10px  #ECDC13,0px 0px 15px #EE9C14;
+border:none;
+color: #0A3B17;
+transition:2s all;
+}
+#btn:hover{
+transition:2s all;
+background:linear-gradient(#EC7613);
+box-shadow:0px 0px 10px;
+cursor: pointer;
+}
+.quotebox{
+  width:300px;
+  height:300px;
+  padding:30px;
+  background-color:#ECF8F9;
+  border:7px solid #0c999e;
+  border-top-left-radius:35px;
+  border-bottom-right-radius:35px;
+}
+ul li{
+font-size:20px;
+font-weight:bold;
+font-family: 'Pacifico', cursive;
+list-style-type:none;
+line-height:45px;
+}
+.down{
+position: relative;  
+left:220px;
+}
+h1{
+padding-bottom:10px; 
+font-family: 'Pacifico', cursive;
+color:#033638 ; 
+}
+</style>
+<body>
+ <div class="container">
+ <button id="btn">Click me</button>
+
+<ul class="unordered">
+  
+</ul>
+ </div> 
+<script>
+ // get and set section 
+ let btn=document.getElementById("btn");
+ let unlist=document.querySelector(".unordered");
+ let main=document.querySelector(".container");
+ console.log(main)
+ let quotebox=document.createElement("div");
+ quotebox.setAttribute("class","quotebox");
+ main.appendChild(quotebox);
+ let head=document.createElement("h1");
+ head.innerHTML="Quotes :";
+ quotebox.appendChild(head)
+ let img1=document.createElement("img");
+ img1.setAttribute("src","quote.png");
+ quotebox.appendChild(img1);
+  quotebox.appendChild(unlist);
+ let quote=document.createElement("li");
+  unlist.appendChild(quote);
+  let img2=document.createElement("img");
+  img2.setAttribute("src","quote-2.png");
+  img2.setAttribute("class","down")
+  quotebox.appendChild(img2)
+// end...
+btn.addEventListener("click",quotes)
+function quotes(){
+  let myquotes=["You will face many defeats in life, but never let yourself be defeated. -Maya Angelou",
+    "The greatest glory in living lies not in never falling, but in rising every time we fall.  -Nelson Mandela",
+    "Never let the fear of striking out keep you from playing the game.  -Babe Ruth",
+    "Life is either a daring adventure or nothing at all.  -Helen Keller",
+    "Many of life's failures are people who did not realize how close they were to success when they gave up.  -Thomas A. Edison",
+    "If life were predictable it would cease to be life and be without flavor  -Eleanor Roosevelt",
+    "In the end, it's not the years in your life that count. It's the life in your years  -Abraham Lincoln",
+    "Life is a succession of lessons which must be lived to be understood  -Ralph Waldo Emerson"];
+let select=Math.floor(Math.random()*myquotes.length);
+quote.innerHTML=myquotes[select];
+}
+
+</script>      
+</body>
+</html>
